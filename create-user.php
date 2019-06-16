@@ -13,10 +13,9 @@
   if(isset($_POST['email'])){
     $email = $_POST['email'];
   }
-  if(isset($_POST['name'])){
+  if(isset($_POST['password'])){
     $password = hash('sha256', $_POST['password']);
   }
-
   if(!$name || !$email || !$password){
     $output['error'] = 'You must supply name, email, and password.';
   }

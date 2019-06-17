@@ -24,8 +24,9 @@
     $output['error'] = "You must supply a name, email, or password to update.";
   }
 
+  require_once('config.php');
+
   if(empty($output['error'])){
-    require_once('config.php');
     $set = 'SET ';
     foreach ($updates as $key => $value) {
       $set = $set."`$key` = '$value',";

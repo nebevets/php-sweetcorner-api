@@ -3,7 +3,7 @@
   $output = [
     'success' => false
   ];
-  $id = null;
+
   require_once('config.php');
   if(empty($output['error'])){
     $query = "SELECT

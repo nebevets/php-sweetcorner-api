@@ -8,7 +8,7 @@
 
   if(isset($_GET['user_id'])){
     $id = $_GET['user_id'];
-  } else{
+  } else {
     $output['error'] = "You must provide a valid user id";
   }
 

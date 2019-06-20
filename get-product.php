@@ -1,13 +1,16 @@
 <?php
+
   $output = [
     'success' => false
   ];
+
   $id = null;
-  require_once('config.php');
+
   if(empty($_GET['id'])){
     $output['error'] = "You must specify an id.";
-  }else{
+  } else {
     $id = $_GET['id'];
+    require_once('config.php');
   }
   if(empty($output['error'])){
     $query = "SELECT

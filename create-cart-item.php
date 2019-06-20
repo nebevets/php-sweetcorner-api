@@ -17,7 +17,6 @@
     $cart_id = $_POST['cart_id'];
     if(isset($_POST['product_id'])){
       $product_id = $_POST['product_id'];
-      $quantity = 1;
       if(isset($_POST['quantity'])){
         $quantity = (int) $_POST['quantity'];
         if($quantity < 1){

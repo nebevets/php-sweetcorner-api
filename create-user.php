@@ -29,9 +29,11 @@
     throw new ApiException($output, 422);
   }
 
-  $query = "INSERT INTO `users`(`name`, `email`, `password`, `created_at`, `updated_at`) VALUES ('$name','$email','$password',CURRENT_TIME,CURRENT_TIME)";
-  $result = $conn->query($query);
-  if($result && $conn->affected_rows){
+  $query = "INSERT INTO `users`(`name`, `email`, `password`, `created_at`, `updated_at`) VALUES (?,?,?,CURRENT_TIME,CURRENT_TIME)";
+  $stmt = $conn->prepare($query);
+  $stmt->bind_param('sss', $name, $email, $password);
+
+  if($stmt->execute() && $conn->affected_rows){
     $inserted_id = $conn->insert_id;
     $output['success'] = true;
     $output['user_id'] = $inserted_id;
